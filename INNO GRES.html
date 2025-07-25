@@ -1,0 +1,1090 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNO GRES | Premium Tiles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Century+Gothic:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <script>
+        // 配置Tailwind自定义主题
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#e6e6e6',
+                        accent: '#b3995d',
+                        neutral: '#f5f5f5',
+                    },
+                    fontFamily: {
+                        'tw-cen': ['Century Gothic', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.03);
+            }
+            .tile-shadow {
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+            .nav-link {
+                position: relative;
+            }
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 1px;
+                bottom: -2px;
+                left: 0;
+                background-color: #b3995d;
+                transition: width 0.3s ease;
+            }
+            .nav-link:hover::after {
+                width: 100%;
+            }
+            .scroll-indicator {
+                height: 3px;
+                background-color: #b3995d;
+                width: 0%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+                transition: width 0.2s ease;
+            }
+        }
+    </style>
+</head>
+<body class="font-tw-cen bg-white text-primary antialiased">
+    <!-- 滚动指示器 -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- 导航栏 -->
+    <nav id="mainNav" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold tracking-wider text-white text-shadow">
+                    INNO<span class="text-accent"></span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-accent transition-colors duration-300">HOME</a>
+                    <a href="#products" class="nav-link text-white hover:text-accent transition-colors duration-300">PRODUCTS</a>
+                    <a href="#about" class="nav-link text-white hover:text-accent transition-colors duration-300">ABOUT</a>
+                    <a href="#features" class="nav-link text-white hover:text-accent transition-colors duration-300">FEATURES</a>
+                    <a href="#testimonials" class="nav-link text-white hover:text-accent transition-colors duration-300">TESTIMONIALS</a>
+                    <a href="#contact" class="nav-link text-white hover:text-accent transition-colors duration-300">CONTACT</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menuBtn" class="md:hidden text-white focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-primary hover:text-accent transition-colors duration-300 py-2">HOME</a>
+                <a href="#products" class="text-primary hover:text-accent transition-colors duration-300 py-2">PRODUCTS</a>
+                <a href="#about" class="text-primary hover:text-accent transition-colors duration-300 py-2">ABOUT</a>
+                <a href="#features" class="text-primary hover:text-accent transition-colors duration-300 py-2">FEATURES</a>
+                <a href="#testimonials" class="text-primary hover:text-accent transition-colors duration-300 py-2">TESTIMONIALS</a>
+                <a href="#contact" class="text-primary hover:text-accent transition-colors duration-300 py-2">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区 -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/a56454939268475b9c0f67c277d3854b~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753243298&amp;x-signature=fsnViOcQbUnEUKAPB9fbPopztyA%3D" alt="Luxury tile flooring" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-white leading-tight mb-6 tracking-wider text-shadow">
+                INNOVATIVE <span class="text-accent"></span> TILES
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] text-white mb-10 max-w-3xl mx-auto text-shadow"></p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products" class="bg-accent hover:bg-accent/90 text-white font-medium py-3 px-8 rounded-sm transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"></a>
+                <a href="#contact" class="bg-transparent border-2 border-white hover:border-accent hover:bg-accent/10 text-white font-medium py-3 px-8 rounded-sm transition-all duration-300"></a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#products" class="flex flex-col items-center">
+                <span class="mb-2 text-sm">SCROLL DOWN</span>
+                <i class="fa fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section id="products" class="py-20 bg-neutral">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 tracking-wider">OUR <span class="text-accent">COLLECTION</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover our premium selection of innovative tiles designed to transform any space with elegance and durability.</p>
+            </div>
+            
+            <!-- 产品分类筛选 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active bg-primary text-white py-2 px-6 rounded-sm transition-all duration-300 hover:shadow-md" data-filter="all">ALL</button>
+                <button class="filter-btn bg-white text-primary py-2 px-6 rounded-sm transition-all duration-300 hover:shadow-md hover:bg-gray-100" data-filter="floor">WOOD</button>
+                <button class="filter-btn bg-white text-primary py-2 px-6 rounded-sm transition-all duration-300 hover:shadow-md hover:bg-gray-100" data-filter="wall">LIMESTONE</button>
+                <button class="filter-btn bg-white text-primary py-2 px-6 rounded-sm transition-all duration-300 hover:shadow-md hover:bg-gray-100" data-filter="outdoor">TRAVERTINE</button>
+            </div>
+            
+            <!-- 产品网格 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 产品项1 -->
+                <div class="product-item floor group" data-category="floor">
+                    <div class="bg-white rounded-sm overflow-hidden hover-scale tile-shadow">
+                        <div class="relative overflow-hidden">
+                            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/0066dea391e4454087bc37db98dac01d~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753254366&amp;x-signature=d8w1Z6yRK%2F3CuqFZ1pw0ksRm9JY%3D" alt="Modern gray floor tiles" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="view-details bg-accent text-white py-2 px-4 rounded-sm transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    VIEW DETAILS
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">SEASON</h3>
+                            <p class="text-gray-600 mb-4">Sleek gray floor tiles with modern texture perfect for contemporary spaces.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-accent font-semibold">$45 / sqm</span>
+                                <span class="text-xs text-gray-500">WOOD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品项2 -->
+                <div class="product-item wall" data-category="wall">
+                    <div class="bg-white rounded-sm overflow-hidden hover-scale tile-shadow">
+                        <div class="relative overflow-hidden">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/45d2fe49f6ae4f39b0a5d7f4d4f9c654~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753254381&amp;x-signature=FvHEWH%2By3J7Cp15dT0Em%2FQGFX%2BU%3D" alt="White marble wall tiles" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="view-details bg-accent text-white py-2 px-4 rounded-sm transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    VIEW DETAILS
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">PIETRA</h3>
+                            <p class="text-gray-600 mb-4">Elegant white wall tiles inspired by natural marble for timeless beauty.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-accent font-semibold">$38 / sqm</span>
+                                <span class="text-xs text-gray-500">LIMESTONE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品项3 -->
+                <div class="product-item outdoor" data-category="outdoor">
+                    <div class="bg-white rounded-sm overflow-hidden hover-scale tile-shadow">
+                        <div class="relative overflow-hidden">
+                            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/84e6e44b2153402c9a6acae308c79d2c~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753254407&amp;x-signature=tu59dtPJz2U1YxclDGngEef2zEA%3D" alt="Natural stone outdoor tiles" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="view-details bg-accent text-white py-2 px-4 rounded-sm transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    VIEW DETAILS
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">CASA STONE</h3>
+                            <p class="text-gray-600 mb-4">Durable outdoor tiles with natural stone appearance and slip resistance.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-accent font-semibold">$52 / sqm</span>
+                                <span class="text-xs text-gray-500">TRAVERTINE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品项4 -->
+                <div class="product-item floor" data-category="floor">
+                    <div class="bg-white rounded-sm overflow-hidden hover-scale tile-shadow">
+                        <div class="relative overflow-hidden">
+                            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/aaf464c159d94f8388eaa6c66ee93a59~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753255291&amp;x-signature=WQmmneq0k%2BGmnKAqlH%2BrRUeFeR0%3D" alt="Wooden effect floor tiles" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="view-details bg-accent text-white py-2 px-4 rounded-sm transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    VIEW DETAILS
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">ECOWOOD</h3>
+                            <p class="text-gray-600 mb-4">Wood effect floor tiles that combine the beauty of wood with ceramic durability.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-accent font-semibold">$42 / sqm</span>
+                                <span class="text-xs text-gray-500">WOOD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品项5 -->
+                <div class="product-item wall" data-category="wall">
+                    <div class="bg-white rounded-sm overflow-hidden hover-scale tile-shadow">
+                        <div class="relative overflow-hidden">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f67072351a644f49adb6d67d2becbecf~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753255147&amp;x-signature=S3mHSM2wQZKAl6Oh7IPCFzC7ua4%3D" alt="Metallic accent wall tiles" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="view-details bg-accent text-white py-2 px-4 rounded-sm transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    VIEW DETAILS
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">LUCCA</h3>
+                            <p class="text-gray-600 mb-4">Modern metallic wall tiles that add a touch of glamour to any space.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-accent font-semibold">$58 / sqm</span>
+                                <span class="text-xs text-gray-500">LIMESTONE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品项6 -->
+                <div class="product-item outdoor" data-category="outdoor">
+                    <div class="bg-white rounded-sm overflow-hidden hover-scale tile-shadow">
+                        <div class="relative overflow-hidden">
+                            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/406c4565f49b4b4e96a8d0285ab61fed~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753255213&amp;x-signature=0VVrRRnprg0uUYgH3Shi%2BI5U84g%3D" alt="Terracotta outdoor tiles" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <button class="view-details bg-accent text-white py-2 px-4 rounded-sm transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    VIEW DETAILS
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">IMAGINE</h3>
+                            <p class="text-gray-600 mb-4">Mediterranean inspired outdoor tiles with warm terracotta tones.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-accent font-semibold">$47 / sqm</span>
+                                <span class="text-xs text-gray-500">LIMESTONE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-sm transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+                    VIEW FULL COLLECTION
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌故事 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 tracking-wider">OUR <span class="text-accent">STORY</span></h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Founded in 2010, INNO GRES has been at the forefront of tile innovation, combining traditional craftsmanship with cutting-edge technology. Our mission is to provide architects, designers, and homeowners with exceptional tile solutions that transform spaces while maintaining the highest standards of quality and sustainability.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Every INNO GRES tile is designed and manufactured with precision, using eco-friendly materials and processes. We source the finest raw materials and employ rigorous quality control to ensure our tiles meet the most demanding specifications.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex flex-col items-start">
+                            <div class="text-accent text-4xl font-bold mb-2">15+</div>
+                            <div class="text-gray-600">Years of Experience</div>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <div class="text-accent text-4xl font-bold mb-2">50+</div>
+                            <div class="text-gray-600">Countries Served</div>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <div class="text-accent text-4xl font-bold mb-2">120+</div>
+                            <div class="text-gray-600">Tile Collections</div>
+                        </div>
+                        <div class="flex flex-col items-start">
+                            <div class="text-accent text-4xl font-bold mb-2">150k+</div>
+                            <div class="text-gray-600">Satisfied Clients</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-block bg-accent hover:bg-accent/90 text-white font-medium py-3 px-8 rounded-sm transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">LEARN MORE</a>
+                </div>
+                
+                <div class="order-1 lg:order-2 relative">
+                    <div class="relative z-10 rounded-sm overflow-hidden hover-scale">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b1d51386108845d5b3c501961afa43e7~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1753255633&amp;x-signature=Z%2BQFGpG4VTobLgf6vH%2BwkUNY8Ho%3D" alt="Tile manufacturing process" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-64 h-64 bg-accent/10 rounded-sm -z-10"></div>
+                    <div class="absolute -top-6 -right-6 w-48 h-48 bg-primary/5 rounded-sm -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特点优势 -->
+    <section id="features" class="py-20 bg-neutral">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 tracking-wider">WHY <span class="text-accent">CHOOSE</span> US</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover the INNO GRES difference - premium quality, innovative design, and unmatched durability.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 特点1 -->
+                <div class="bg-white p-8 rounded-sm hover-scale tile-shadow">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-diamond"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">PREMIUM QUALITY</h3>
+                    <p class="text-gray-600">
+                        Our tiles are crafted using the finest materials and advanced manufacturing techniques to ensure exceptional quality and durability.
+                    </p>
+                </div>
+                
+                <!-- 特点2 -->
+                <div class="bg-white p-8 rounded-sm hover-scale tile-shadow">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-lightbulb-o"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">INNOVATIVE DESIGN</h3>
+                    <p class="text-gray-600">
+                        Our team of designers creates unique and contemporary tile designs that inspire and transform spaces.
+                    </p>
+                </div>
+                
+                <!-- 特点3 -->
+                <div class="bg-white p-8 rounded-sm hover-scale tile-shadow">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">ECO-FRIENDLY</h3>
+                    <p class="text-gray-600">
+                        We are committed to sustainability, using eco-friendly materials and processes in all our tile production.
+                    </p>
+                </div>
+                
+                <!-- 特点4 -->
+                <div class="bg-white p-8 rounded-sm hover-scale tile-shadow">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">DURABLE &amp; RESISTANT</h3>
+                    <p class="text-gray-600">
+                        INNO GRES tiles are highly resistant to wear, scratches, stains, and extreme weather conditions.
+                    </p>
+                </div>
+                
+                <!-- 特点5 -->
+                <div class="bg-white p-8 rounded-sm hover-scale tile-shadow">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">ENDLESS OPTIONS</h3>
+                    <p class="text-gray-600">
+                        With a vast range of colors, textures, and sizes, our tiles offer endless possibilities for creative expression.
+                    </p>
+                </div>
+                
+                <!-- 特点6 -->
+                <div class="bg-white p-8 rounded-sm hover-scale tile-shadow">
+                    <div class="text-accent text-4xl mb-6">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">EXPERT SUPPORT</h3>
+                    <p class="text-gray-600">
+                        Our team of tile experts is available to provide professional advice and support for your projects.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section id="testimonials" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4 tracking-wider">CLIENT <span class="text-accent">TESTIMONIALS</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Hear what our clients have to say about their experience with INNO GRES tiles.</p>
+            </div>
+            
+            <div class="testimonial-slider relative">
+                <div class="overflow-hidden">
+                    <div class="testimonial-track flex transition-transform duration-500" id="testimonialTrack">
+                        <!-- 评价1 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4">
+                            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-sm h-full">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://picsum.photos/id/1027/100/100" alt="Client portrait" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="text-xl font-semibold">Sophia Anderson</h4>
+                                        <p class="text-accent">Architect</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 mb-6">
+                                    "INNO GRES tiles have been my go-to choice for numerous commercial projects. The quality and design options are unmatched, and their team's expertise has been invaluable."
+                                </p>
+                                <div class="text-accent">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 评价2 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4">
+                            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-sm h-full">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://picsum.photos/id/1012/100/100" alt="Client portrait" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="text-xl font-semibold">Michael Chen</h4>
+                                        <p class="text-accent">Interior Designer</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 mb-6">
+                                    "The metallic accent tiles from INNO GRES added the perfect touch of elegance to my latest luxury residential project. My client was extremely impressed with the result."
+                                </p>
+                                <div class="text-accent">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 评价3 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4">
+                            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-sm h-full">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://picsum.photos/id/1025/100/100" alt="Client portrait" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="text-xl font-semibold">Emma Rodriguez</h4>
+                                        <p class="text-accent">Homeowner</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 mb-6">
+                                    "Installed the Metropolis Gray tiles in my kitchen and they have exceeded my expectations. Not only do they look stunning, but they're also incredibly easy to clean and maintain."
+                                </p>
+                                <div class="text-accent">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 评价4 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4">
+                            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-sm h-full">
+                                <div class="flex items-center mb-6">
+                                    <img src="https://picsum.photos/id/1074/100/100" alt="Client portrait" class="w-16 h-16 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="text-xl font-semibold">David Wilson</h4>
+                                        <p class="text-accent">Contractor</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 mb-6">
+                                    "I've been using INNO GRES tiles for over 5 years now. Their consistency in quality and timely delivery makes them my top choice for all my projects."
+                                </p>
+                                <div class="text-accent">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 轮播控制按钮 -->
+                <button id="prevBtn" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+                <button id="nextBtn" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+                
+                <!-- 轮播指示器 -->
+                <div class="flex justify-center mt-8 space-x-2" id="testimonialIndicators">
+                    <button class="w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300 testimonial-indicator active" data-index="0"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300 testimonial-indicator" data-index="1"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300 testimonial-indicator" data-index="2"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300 testimonial-indicator" data-index="3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-6 tracking-wider">GET IN <span class="text-accent">TOUCH</span></h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Have questions about our products or need expert advice for your project? Contact our team today and let us help you create the space of your dreams.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="text-accent text-xl mr-4 mt-1">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">ADDRESS</h4>
+                                <p class="text-gray-600">123 Innovation Street, Design District<br>New York, NY 10001, USA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-accent text-xl mr-4 mt-1">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">PHONE</h4>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-accent text-xl mr-4 mt-1">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">EMAIL</h4>
+                                <p class="text-gray-600">info@innogres.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-accent text-xl mr-4 mt-1">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">WORKING HOURS</h4>
+                                <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary hover:bg-primary/90 text-white flex items-center justify-center transition-all duration-300">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary hover:bg-primary/90 text-white flex items-center justify-center transition-all duration-300">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary hover:bg-primary/90 text-white flex items-center justify-center transition-all duration-300">
+                            <i class="fa fa-pinterest-p"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary hover:bg-primary/90 text-white flex items-center justify-center transition-all duration-300">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-neutral p-8 rounded-sm tile-shadow">
+                        <h3 class="text-2xl font-semibold mb-6">SEND US A MESSAGE</h3>
+                        <form id="contactForm">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300" placeholder="Your name" required="">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300" placeholder="Your email" required="">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300" placeholder="Subject">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300" placeholder="Your message" required=""></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-white font-medium py-3 px-8 rounded-sm transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1">
+                                SEND MESSAGE
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-6">INNO<span class="text-accent">GRES</span></h4>
+                    <p class="text-gray-300 mb-6">
+                        Transforming spaces with premium quality tiles and innovative design solutions since 2010.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">
+                            <i class="fa fa-pinterest-p"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">QUICK LINKS</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-300 hover:text-accent transition-colors duration-300">Home</a></li>
+                        <li><a href="#products" class="text-gray-300 hover:text-accent transition-colors duration-300">Products</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-accent transition-colors duration-300">About Us</a></li>
+                        <li><a href="#features" class="text-gray-300 hover:text-accent transition-colors duration-300">Features</a></li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-accent transition-colors duration-300">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-accent transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">PRODUCTS</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">Floor Tiles</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">Wall Tiles</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">Outdoor Tiles</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">Bathroom Tiles</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">Kitchen Tiles</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors duration-300">Commercial Tiles</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">NEWSLETTER</h4>
+                    <p class="text-gray-300 mb-4">
+                        Subscribe to our newsletter to receive updates on new products and special offers.
+                    </p>
+                    <form class="mb-4">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 rounded-sm focus:outline-none text-primary">
+                            <button type="submit" class="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-sm ml-2 transition-all duration-300">
+                                <i class="fa fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <p class="text-gray-400 text-sm">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2025 INNO GRES. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-accent text-sm transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-accent text-sm transition-colors duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-accent text-sm transition-colors duration-300">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-accent hover:bg-accent/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <!-- 产品详情模态框 -->
+    <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 opacity-0 invisible transition-all duration-300">
+        <div class="bg-white rounded-sm max-w-4xl w-full max-h-[90vh] overflow-auto mx-4 transform scale-95 transition-all duration-300">
+            <div class="relative">
+                <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-primary z-10">
+                    <i class="fa fa-times text-2xl"></i>
+                </button>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="relative">
+                        <img id="modalImage" src="https://picsum.photos/id/1048/800/800" alt="Tile product" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <div class="p-8">
+                        <h3 id="modalTitle" class="text-2xl font-semibold mb-2">METROPOLIS GRAY</h3>
+                        <p id="modalCategory" class="text-accent mb-4">FLOOR TILE</p>
+                        <div class="flex items-center mb-6">
+                            <div class="text-yellow-400 mr-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <span class="text-gray-500 text-sm">(24 reviews)</span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <p id="modalPrice" class="text-2xl font-bold text-accent">$45 / sqm</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">DESCRIPTION</h4>
+                            <p id="modalDescription" class="text-gray-600">
+                                Sleek gray floor tiles with modern texture perfect for contemporary spaces. These high-quality porcelain tiles offer exceptional durability and are suitable for both residential and commercial applications. Available in multiple sizes to suit your design needs.
+                            </p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">SPECIFICATIONS</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li><i class="fa fa-check text-accent mr-2"></i> Size: 60x60 cm, 80x80 cm</li>
+                                <li><i class="fa fa-check text-accent mr-2"></i> Thickness: 9 mm</li>
+                                <li><i class="fa fa-check text-accent mr-2"></i> Water Absorption: &lt;0.5%</li>
+                                <li><i class="fa fa-check text-accent mr-2"></i> Wear Resistance: PEI Class IV</li>
+                                <li><i class="fa fa-check text-accent mr-2"></i> Anti-Slip Rating: R10</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">QUANTITY</h4>
+                            <div class="flex items-center">
+                                <button class="w-10 h-10 border border-gray-300 rounded-sm flex items-center justify-center hover:bg-gray-100 transition-colors duration-300">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <input type="number" value="1" min="1" class="w-16 h-10 border-t border-b border-gray-300 text-center focus:outline-none">
+                                <button class="w-10 h-10 border border-gray-300 rounded-sm flex items-center justify-center hover:bg-gray-100 transition-colors duration-300">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-accent hover:bg-accent/90 text-white font-medium py-3 px-8 rounded-sm transition-all duration-300 hover:shadow-lg flex-1">
+                                ADD TO CART
+                            </button>
+                            <button class="bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-sm transition-all duration-300 hover:shadow-lg flex-1">
+                                REQUEST SAMPLE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 导航栏滚动效果
+        const mainNav = document.getElementById('mainNav');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            // 导航栏背景变化
+            if (window.scrollY > 100) {
+                mainNav.classList.add('bg-primary', 'shadow-lg');
+                mainNav.classList.remove('bg-transparent');
+            } else {
+                mainNav.classList.remove('bg-primary', 'shadow-lg');
+                mainNav.classList.add('bg-transparent');
+            }
+            
+            // 滚动指示器
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollIndicator.style.width = scrolled + "%";
+            
+            // 返回顶部按钮
+            if (window.scrollY > 500) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 返回顶部功能
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 移动端菜单
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuBtn.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
+            } else {
+                menuBtn.innerHTML = '<i class="fa fa-times text-2xl"></i>';
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动菜单
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 产品筛选
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productItems = document.querySelectorAll('.product-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 移除所有按钮的活动状态
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-primary', 'text-white');
+                    b.classList.add('bg-white', 'text-primary');
+                });
+                
+                // 添加当前按钮的活动状态
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('bg-white', 'text-primary');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // 筛选产品
+                productItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // 产品详情模态框
+        const productModal = document.getElementById('productModal');
+        const closeModal = document.getElementById('closeModal');
+        const viewDetailsBtns = document.querySelectorAll('.view-details');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDescription = document.getElementById('modalDescription');
+        
+        viewDetailsBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 获取产品信息
+                const productCard = this.closest('.product-item');
+                const image = productCard.querySelector('img').src;
+                const title = productCard.querySelector('h3').textContent;
+                const category = productCard.querySelector('.text-xs').textContent;
+                const price = productCard.querySelector('.text-accent').textContent;
+                const description = productCard.querySelector('p').textContent;
+                
+                // 设置模态框内容
+                modalImage.src = image;
+                modalTitle.textContent = title;
+                modalCategory.textContent = category;
+                modalPrice.textContent = price;
+                modalDescription.textContent = description;
+                
+                // 显示模态框
+                productModal.classList.remove('opacity-0', 'invisible');
+                productModal.querySelector('.bg-white').classList.remove('scale-95');
+                productModal.querySelector('.bg-white').classList.add('scale-100');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeModal.addEventListener('click', function() {
+            // 隐藏模态框
+            productModal.classList.add('opacity-0', 'invisible');
+            productModal.querySelector('.bg-white').classList.remove('scale-100');
+            productModal.querySelector('.bg-white').classList.add('scale-95');
+            document.body.style.overflow = '';
+        });
+        
+        // 点击模态框外部关闭
+        productModal.addEventListener('click', function(e) {
+            if (e.target === productModal) {
+                productModal.classList.add('opacity-0', 'invisible');
+                productModal.querySelector('.bg-white').classList.remove('scale-100');
+                productModal.querySelector('.bg-white').classList.add('scale-95');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // 客户评价轮播
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.testimonial-indicator');
+        let currentSlide = 0;
+        let slideWidth = 100;
+        let slidesToShow = 1;
+        
+        // 根据屏幕尺寸确定显示的幻灯片数量
+        function updateSlidesToShow() {
+            if (window.innerWidth >= 1024) {
+                slidesToShow = 3;
+            } else if (window.innerWidth >= 768) {
+                slidesToShow = 2;
+            } else {
+                slidesToShow = 1;
+            }
+            slideWidth = 100 / slidesToShow;
+            updateSlidePosition();
+        }
+        
+        // 更新幻灯片位置
+        function updateSlidePosition() {
+            testimonialTrack.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            
+            // 更新指示器
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('bg-white');
+                    indicator.classList.remove('bg-white/30');
+                } else {
+                    indicator.classList.remove('bg-white');
+                    indicator.classList.add('bg-white/30');
+                }
+            });
+        }
+        
+        // 下一张幻灯片
+        function nextSlide() {
+            const maxSlide = Math.ceil(document.querySelectorAll('.testimonial-slide').length - slidesToShow);
+            currentSlide = currentSlide >= maxSlide ? 0 : currentSlide + 1;
+            updateSlidePosition();
+        }
+        
+        // 上一张幻灯片
+        function prevSlide() {
+            const maxSlide = Math.ceil(document.querySelectorAll('.testimonial-slide').length - slidesToShow);
+            currentSlide = currentSlide <= 0 ? maxSlide : currentSlide - 1;
+            updateSlidePosition();
+        }
+        
+        // 初始化轮播
+        function initSlider() {
+            updateSlidesToShow();
+            
+            // 按钮事件
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            
+            // 指示器事件
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlidePosition();
+                });
+            });
+            
+            // 自动轮播
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // 鼠标悬停时暂停自动轮播
+            testimonialTrack.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            // 鼠标离开时恢复自动轮播
+            testimonialTrack.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        }
+        
+        // 初始化轮播
+        initSlider();
+        
+        // 窗口大小改变时更新轮播
+        window.addEventListener('resize', updateSlidesToShow);
+        
+        // 表单提交
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 模拟表单提交
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> Sending...';
+            
+            setTimeout(() => {
+                // 显示成功消息
+                alert('Thank you for your message! We will get back to you soon.');
+                
+                // 重置表单
+                this.reset();
+                
+                // 恢复按钮状态
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }, 1500);
+        });
+    </script>
+
+
+    </body></html>
